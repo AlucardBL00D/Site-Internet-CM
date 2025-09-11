@@ -1,0 +1,45 @@
+Comment configurer l'envoi d'email avec PHPMailer et Gmail
+============================================================
+
+1. Activer la validation en deux étapes sur ton compte Gmail
+-----------------------------------------------------------
+- Va sur https://myaccount.google.com/security
+- Active la validation en deux étapes (2FA)
+
+2. Créer un mot de passe d'application Gmail
+--------------------------------------------
+- Va sur https://myaccount.google.com/apppasswords
+- Choisis "Mail" et "Windows Computer" (ou autre)
+- Génère le mot de passe d'application
+- Copie ce mot de passe (il ressemble à : abcd efgh ijkl mnop)
+
+3. Modifier le fichier send_contact.php
+---------------------------------------
+- Remplace la ligne :
+  $mail->Password = 'app mot de passe pas mot de passe principale';
+  par :
+  $mail->Password = 'TON_MOT_DE_PASSE_D_APPLICATION';
+- Laisse ton adresse Gmail dans $mail->Username et $mail->setFrom
+
+4. Tester l'envoi
+-----------------
+- Remplis le formulaire et envoie un message
+- Vérifie le message affiché (succès ou erreur)
+- Vérifie le dossier "Spam" de la boîte de réception du destinataire
+
+5. Si tu as une erreur
+----------------------
+- Copie le message d'erreur affiché
+- Cherche le code d'erreur sur Google ou demande de l'aide ici
+
+6. Sécurité
+-----------
+- Ne partage jamais ton mot de passe d'application
+- Si tu veux changer de mot de passe, supprime l'ancien et génère-en un nouveau
+
+Astuce :
+--------
+- Pour plus de sécurité, utilise un compte Gmail dédié à l'envoi de mails du site.
+
+---
+Fait par GitHub Copilot, août 2025.
