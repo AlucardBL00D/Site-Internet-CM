@@ -1,18 +1,17 @@
-
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$ip_file = __DIR__ . '/ip_block.txt';
+$ip_file = __DIR__ . '/../ip_block.txt';
 $ip = $_SERVER['REMOTE_ADDR'] ?? '';
 $now = time();
-$block_duration = 300; // 5 minutes
+$block_duration = 120; // 2 minutes
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name'] ?? '');
@@ -22,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Protection honeypot
     if (!empty($honeypot)) {
-        echo 'Spam détecté.';
+        echo "<script>alert('Spam détecté.'); window.location.href='../Pages/contact.html';</script>";
         exit;
     }
 
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($lines as $line) {
             list($logged_ip, $timestamp) = explode('|', $line);
             if ($logged_ip === $ip && ($now - (int)$timestamp) < $block_duration) {
-                echo 'Veuillez attendre 5 minutes entre chaque envoi.';
+                echo "<script>alert('Veuillez attendre 2 minutes entre chaque envoi.'); window.location.href='../Pages/contact.html';</script>";
                 exit;
             }
         }
@@ -40,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validation email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Adresse email invalide.';
+        echo "<script>alert('Adresse email invalide.'); window.location.href='../Pages/contact.html';</script>";
         exit;
     }
 
@@ -48,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $forbidden = ['http://', 'https://', 'viagra', 'casino', 'bitcoin'];
     foreach ($forbidden as $word) {
         if (stripos($message, $word) !== false) {
-            echo 'Message non autorisé.';
+            echo "<script>alert('Message non autorisé.'); window.location.href='../Pages/contact.html';</script>";
             exit;
         }
     }
@@ -61,23 +60,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'contact.catherine.messier.inc@gmail.com'; // <-- à remplacer par ton adresse Gmail
-        $mail->Password = 'qxyskttnndwsogmq'; // <-- à remplacer par ton mot de passe d'application Gmail
+        $mail->Username = 'contact.catherine.messier.inc@gmail.com';
+        $mail->Password = 'qxyskttnndwsogmq';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('contact.catherine.messier.inc@gmail.com', $name); // Utilise ton adresse Gmail ici
-        $mail->addAddress('siphafire.archambault.1259@gmail.com'); // Destinataire
+        $mail->setFrom('contact.catherine.messier.inc@gmail.com', 'Site Internet Catherine MESSIER Designer & Finition INC.');
+        $mail->addAddress('siphafire.archambault.1259@gmail.com');
         $mail->Subject = 'Nouveau message du site web';
         $mail->Body = "Nom: $name\nEmail: $email\nMessage:\n$message";
 
         $mail->send();
         file_put_contents($ip_file, "$ip|$now\n", FILE_APPEND | LOCK_EX);
-        echo 'Votre message a été envoyé avec succès.';
+        echo "<script>alert('Votre message a été envoyé avec succès.'); window.location.href='../Pages/contact.html';</script>";
     } catch (Exception $e) {
-        echo "Erreur lors de l'envoi : {$mail->ErrorInfo}";
+        echo "<script>alert('Erreur lors de l\'envoi : {$mail->ErrorInfo}'); window.location.href='../Pages/contact.html';</script>";
     }
 } else {
-    echo 'Méthode non autorisée.';
+    echo "<script>alert('Méthode non autorisée.'); window.location.href='../Pages/contact.html';</script>";
 }
 ?>
