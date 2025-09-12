@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('Xavier.Archambault.Pro@gmail.com', $name); // Utilise ton adresse Gmail ici
+        $mail->setFrom('contact.catherine.messier.inc@gmail.com', $name); // Utilise ton adresse Gmail ici
         $mail->addAddress('siphafire.archambault.1259@gmail.com'); // Destinataire
         $mail->Subject = 'Nouveau message du site web';
         $mail->Body = "Nom: $name\nEmail: $email\nMessage:\n$message";
