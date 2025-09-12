@@ -8,7 +8,7 @@ Comment configurer l'envoi d'email avec PHPMailer et Gmail
 
 2. Créer un mot de passe d'application Gmail
 --------------------------------------------
-- Va sur https://myaccount.google.com/apppasswords
+- Va sur https://myaccount.google.com/security
 - Choisis "Mail" et "Windows Computer" (ou autre)
 - Génère le mot de passe d'application
 - Copie ce mot de passe (il ressemble à : abcd efgh ijkl mnop)

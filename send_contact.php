@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'Un nouveau email cree pour sa test pas sur un des miens'; // <-- à remplacer par ton adresse Gmail
-        $mail->Password = 'app mot de passe pas mot de passe principale'; // <-- à remplacer par ton mot de passe d'application Gmail
+        $mail->Username = 'contact.catherine.messier.inc@gmail.com'; // <-- à remplacer par ton adresse Gmail
+        $mail->Password = 'qxys kttn ndws ogmq'; // <-- à remplacer par ton mot de passe d'application Gmail
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
