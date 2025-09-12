@@ -55,12 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Configuration PHPMailer
     $mail = new PHPMailer(true);
+    $mail->SMTPDebug = 2; // Affiche les erreurs SMTP détaillées
+    $mail->Debugoutput = 'html';
     try {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'contact.catherine.messier.inc@gmail.com'; // <-- à remplacer par ton adresse Gmail
-        $mail->Password = 'qxys kttn ndws ogmq'; // <-- à remplacer par ton mot de passe d'application Gmail
+        $mail->Password = 'qxyskttnndwsogmq'; // <-- à remplacer par ton mot de passe d'application Gmail
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
