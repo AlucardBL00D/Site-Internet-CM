@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form[action="../send_contact.php"]');
+    // Sélectionne le formulaire de contact peu importe le chemin de l'action
+    const form = document.getElementById('contactForm');
     if (!form) return;
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(form);
-        fetch('../send_contact.php', {
+        // Récupère dynamiquement le chemin d'action du formulaire
+        let action = form.getAttribute('action');
+        fetch(action, {
             method: 'POST',
             body: formData
         })

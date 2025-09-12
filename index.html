@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catherine MESSIER Designer & Finition INC.</title>
     <link rel="stylesheet" href="css/Style.css">
+    <script src="js/contact-form.js" defer></script>
 </head>
 <body>
 
@@ -66,7 +67,7 @@
     <!-- Section Contact -->
     <section class="contact">
         <h2>Contactez-nous</h2>
-        <form action="send_contact.php" method="post">
+    <form action="php/send_contact.php" method="post" id="contactForm">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email :</label>
