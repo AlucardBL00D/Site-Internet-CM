@@ -7,21 +7,7 @@
     <link rel="stylesheet" href="../css/Style.css">
 </head>
 <body>
-    <div class="top-bar">
-        Contactez-nous au (514) 560-7111 ou catherine_messier@hotmail.com
-    </div>
-    <header>
-        <div class="logo"></div>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "templates/header.php"; ?>
     <section class="hero">
         <h1>Mentions légales</h1>
         <p>
@@ -37,10 +23,6 @@
             Tous les bénéficiaires ultimes ont été identifiés.<br>
         </p>
     </section>
-    <footer>
-        <p>&copy; 2025 Catherine MESSIER Designer & Finition INC. Tous droits réservés.</p>
-        <p>Adresse : 1259 rue du Phare, Laval, Québec, H7R 6J3</p>
-        <p>Email : catherine_messier@hotmail.com | Téléphone : (514) 560-7111</p>
-    </footer>
+    <?php include "templates/footer.php"; ?>
 </body>
 </html>

@@ -9,24 +9,7 @@
 </head>
 <body>
 
-     <!-- Barre supérieure en gold -->
-     <div class="top-bar">
-        Contactez-nous au (514) 560-7111 ou catherine_messier@hotmail.com
-    </div>
-
-    <!-- En-tête avec logo et menu de navigation -->
-    <header>
-        <div class="logo"> <!-- Remplacer par votre logo --></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="Pages/about.html">À propos</a></li>
-                <li><a href="Pages/services.html">Services</a></li>
-                <li><a href="Pages/portfolio.html">Portfolio</a></li>
-                <li><a href="Pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "Pages/templates/header.php"; ?>
 
     <!-- Section principale avec grand titre et description -->
     <section class="hero">
@@ -64,27 +47,8 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section class="contact">
-        <h2>Contactez-nous</h2>
-    <form action="php/send_contact.php" method="post" id="contactForm">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-            <!-- Champ honeypot invisible pour les robots -->
-            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
+    <?php include "Pages/templates/mailform.php"; ?>
 
-    <!-- Pied de page avec les informations de l'entreprise -->
-    <footer>
-        <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
-        <p>Adresse : 1259 rue du Phare, Laval, Québec, H7R 6J3</p>
-        <p>Email : catherine_messier@hotmail.com | Téléphone : (514) 560-7111</p>
-    </footer>
+    <?php include "Pages/templates/footer.php"; ?>
 </body>
 </html>
