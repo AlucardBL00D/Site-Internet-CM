@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catherine MESSIER Designer & Finition INC.</title>
+    <link rel="stylesheet" href="css/Style.css">
+    <script src="js/contact-form.js" defer></script>
+</head>
+<body>
+    <!-- Barre supérieure en gold -->
+    <div class="top-bar">
+        Contactez-nous au (514) 560-7111 ou catherine_messier@hotmail.com
+    </div>
+    <!-- En-tête avec logo et menu de navigation -->
+    <header>
+        <div class="logo"> <!-- Remplacer par votre logo --></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Pages/about.php">À propos</a></li>
+                <li><a href="Pages/services.php">Services</a></li>
+                <li><a href="Pages/portfolio.php">Portfolio</a></li>
+                <li><a href="Pages/contact.php">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Section principale avec grand titre et description -->
+    <section class="hero">
+        <div class="hero-content">
+          <img src="image/Logo_CM_2_transparent_Gradient_2.png" alt="Logo Catherine Messier Designer & Finition INC." class="hero-logo">
+          <p class="hero-desc">Description rapide de l'entreprise et des services.</p>
+          <button class="hero-btn">En savoir plus</button>
+        </div>
+    </section>
+    <!-- Section des services -->
+    <section class="services">
+        <h2>Nos Services</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <img src="image/Logo_CM_2_transparent_Gradient_2.png" alt="Design intérieur résidentiel">
+                <h3>Design intérieur résidentiel</h3>
+                <p>Conception et optimisation d’espaces de vie, choix de matériaux, couleurs et mobilier adaptés à vos besoins et à votre style.</p>
+            </div>
+            <div class="service-box">
+                <img src="image/Logo_CM_2_transparent_Gradient_2.png" alt="Finition de surfaces">
+                <h3>Finition de surfaces</h3>
+                <p>Application professionnelle de peinture, vernis, enduits décoratifs et revêtements pour murs, plafonds et boiseries.</p>
+            </div>
+            <div class="service-box">
+                <img src="image/Logo_CM_2_transparent_Gradient_2.png" alt="Conseil personnalisé">
+                <h3>Conseil personnalisé</h3>
+                <p>Accompagnement sur mesure pour vos projets, de la planification à la réalisation, avec des solutions créatives et adaptées.</p>
+            </div>
+            <div class="service-box">
+                <img src="image/Logo_CM_2_transparent_Gradient_2.png" alt="Gestion de projet">
+                <h3>Gestion de projet</h3>
+                <p>Coordination complète des travaux, suivi des intervenants et respect des délais pour un résultat professionnel et sans souci.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Section Contact -->
+    <section class="contact">
+        <h2>Contactez-nous</h2>
+    <form action="php/send_contact.php" method="post" id="contactForm">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            <!-- Champ honeypot invisible pour les robots -->
+            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    <!-- Pied de page avec les informations de l'entreprise -->
+    <footer>
+        <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+        <p>Adresse : 1259 rue du Phare, Laval, Québec, H7R 6J3</p>
+        <p>Email : catherine_messier@hotmail.com | Téléphone : (514) 560-7111</p>
+    </footer>
+</body>
+</html>
